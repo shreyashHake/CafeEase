@@ -15,6 +15,7 @@
     <description>Cafe management System project</description>
     <properties>
         <java.version>11</java.version>
+        <spring.build.animated>false</spring.build.animated>
     </properties>
     <dependencies>
         <dependency>
@@ -97,6 +98,14 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 			<version>2.5.6</version>
 		</dependency>
+
+        <!-- To boost speed-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

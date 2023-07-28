@@ -13,11 +13,23 @@ import java.util.Map;
 @RequestMapping(path = "/user")
 public interface UserRest {
     @PostMapping("/signUp")
-    ResponseEntity<String> signUp(@RequestBody(required = true)Map<String, String> requestMap);
+    ResponseEntity<String> signUp(@RequestBody(required = true) Map<String, String> requestMap);
+
     @PostMapping("/login")
-    ResponseEntity<String> login(@RequestBody(required = true)Map<String, String> requestMap);
+    ResponseEntity<String> login(@RequestBody(required = true) Map<String, String> requestMap);
+
     @GetMapping("/getAllUser")
     ResponseEntity<List<UserWrapper>> getAllUser();
+
     @PostMapping("/updateUser")
-    ResponseEntity<String> updateUser(@RequestBody(required = true)Map<String, String> requestMap);
+    ResponseEntity<String> updateUser(@RequestBody(required = true) Map<String, String> requestMap);
+
+    @GetMapping("/checkToken")
+    ResponseEntity<String> checkToken();
+
+    @PostMapping("/changePassword")
+    ResponseEntity<String> changePassword(@RequestBody(required = true) Map<String, String> requestMap);
+
+    @PostMapping("/forgotPassword")
+    ResponseEntity<String> forgotPassword(@RequestBody(required = true)Map<String, String> requestMap);
 }
