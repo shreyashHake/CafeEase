@@ -1,5 +1,7 @@
 package com.cafe.model;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +19,7 @@ import java.io.Serializable;
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "_user")
+@Table(name = "bill")
 public class Bill implements Serializable {
     private static final long versionSerialUID = 1L;
 
@@ -32,8 +34,10 @@ public class Bill implements Serializable {
     @Column(name = "paymentmethod")
     private String paymentMethod;
     private Integer total;
+//    @Column(name = "productdetails", columnDefinition = "json")
     @Column(name = "productdetails", columnDefinition = "json")
     private String productDetails;
     @Column(name = "cretedby")
     private String createdBy;
+
 }

@@ -5,10 +5,8 @@ import com.cafe.model.Category;
 import com.cafe.rest.CategoryRest;
 import com.cafe.service.CategoryService;
 import com.cafe.util.CafeUtils;
-import com.cafe.wrapper.UserWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -28,7 +26,7 @@ public class CategoryRestImpl implements CategoryRest {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return CafeUtils.getResoponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+        return CafeUtils.getResponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @Override
@@ -48,6 +46,6 @@ public class CategoryRestImpl implements CategoryRest {
         } catch (Exception ex){
             ex.printStackTrace();
         }
-        return CafeUtils.getResoponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+        return CafeUtils.getResponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

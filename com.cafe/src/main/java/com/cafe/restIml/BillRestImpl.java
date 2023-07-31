@@ -23,6 +23,6 @@ public class BillRestImpl implements BillRest {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return CafeUtils.getResoponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+        return CafeUtils.getResponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

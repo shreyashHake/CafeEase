@@ -32,17 +32,17 @@ public class CategoryServiceImpl implements CategoryService {
             if (jwtFilter.isAdmin()) {
                 if (validateCategoryMap(requestMap, false)) {
                     categoryDao.save(getCategoryFromMap(requestMap, false));
-                    return CafeUtils.getResoponseEntity("Category added successfully", HttpStatus.OK);
+                    return CafeUtils.getResponseEntity("Category added successfully", HttpStatus.OK);
                 } else {
-                    return CafeUtils.getResoponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+                    return CafeUtils.getResponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
                 }
             } else {
-                return CafeUtils.getResoponseEntity(CafeConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED);
+                return CafeUtils.getResponseEntity(CafeConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return CafeUtils.getResoponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+        return CafeUtils.getResponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     private boolean validateCategoryMap(Map<String, String> requestMap, boolean validateId) {
@@ -83,18 +83,18 @@ public class CategoryServiceImpl implements CategoryService {
                     Optional<Category> optional = categoryDao.findById(Integer.parseInt(requestMap.get("id")));
                     if (optional.isPresent()) {
                         categoryDao.save(getCategoryFromMap(requestMap, true));
-                        return CafeUtils.getResoponseEntity("Category added successfully", HttpStatus.OK);
+                        return CafeUtils.getResponseEntity("Category added successfully", HttpStatus.OK);
                     } else {
-                        return CafeUtils.getResoponseEntity("Id does not exists", HttpStatus.OK);
+                        return CafeUtils.getResponseEntity("Id does not exists", HttpStatus.OK);
                     }
                 }
-                return CafeUtils.getResoponseEntity(CafeConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
+                return CafeUtils.getResponseEntity(CafeConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
             } else {
-                return CafeUtils.getResoponseEntity(CafeConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED);
+                return CafeUtils.getResponseEntity(CafeConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return CafeUtils.getResoponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+        return CafeUtils.getResponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
